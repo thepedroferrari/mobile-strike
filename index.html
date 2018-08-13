@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobile Strike</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <h1>Mobile Strike <span class="score">0</span> <button onClick="startGame()">Start!</button></h1>
+
+  <div class="game">
+    <div class="spawn spawn01">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn02">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn03">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn04">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn05">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn06">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn07">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn08">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn09">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn10">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn11">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn12">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn13">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn14">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn15">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn16">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn17">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn18">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn19">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn20">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn21">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn22">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn23">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn24">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn25">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn26">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn27">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn28">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn29">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn30">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn31">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn32">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn33">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn34">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn35">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn36">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn37">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn38">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn39">
+      <div class="enemy"></div>
+    </div>
+    <div class="spawn spawn40">
+      <div class="enemy"></div>
+    </div>
+  </div>
+
+<script>
+  const spawns = document.querySelectorAll('.spawn');
+  const scoreBoard = document.querySelector('.score');
+  const enemies = document.querySelectorAll('.enemy');
+  let life = 100;
+  let lastSpawn;
+  let timeUp = false;
+  let score = 0;
+
+  function randomTime(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+  }
+
+  function randomspawn(spawns) {
+    const idx = Math.floor(Math.random() * spawns.length);
+    const spawn = spawns[idx];
+    if (spawn === lastSpawn) {
+      console.log('Ah nah thats the same one bud');
+      return randomspawn(spawns);
+    }
+    lastSpawn = spawn;
+    return spawn;
+  }
+
+  function peep() {
+    const time = randomTime(200, 1000);
+    const spawn = randomspawn(spawns);
+    spawn.classList.add('up');
+    setTimeout(() => {
+      spawn.classList.remove('up');
+      if (!timeUp) peep();
+    }, time);
+  }
+
+  function startGame() {
+    scoreBoard.textContent = 0;
+    timeUp = false;
+    score = 0;
+    peep();
+    setTimeout(() => timeUp = true, 100000)
+  }
+
+  function bonk(e) {
+    if(!e.isTrusted) return; // cheater!
+    score++;
+    this.parentNode.classList.remove('up');
+    scoreBoard.textContent = score;
+  }
+
+  enemies.forEach(enemy => enemy.addEventListener('click', bonk));
+
+</script>
+
+
+
+
+
+
+
+
+<style>
+  html {
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  padding: 0;
+  margin:0;
+  font-family: 'Amatic SC', cursive;
+}
+
+h1 {
+  text-align: center;
+  font-size: 10rem;
+  line-height:1;
+  margin-bottom: 0;
+}
+
+.score {
+  background:rgba(255,255,255,0.2);
+  padding:0 3rem;
+  line-height:1;
+  border-radius:1rem;
+}
+
+.game {
+  width:1920px;
+  height:1080px;
+  display:flex;
+  flex-wrap:wrap;
+  margin:0 auto;
+  background: url('bg.jpg');
+  background-size: cover;
+}
+
+.spawn {
+  overflow: hidden;
+  position: relative;
+  flex: 1 0 20%;
+}
+ /*
+.spawn:after {
+  display: block;
+  background: url(shadow.png) bottom center no-repeat;
+  background-size:contain;
+  content:'';
+  width: 100%;
+  height:70px;
+  position: absolute;
+  z-index: 2;
+  bottom:-30px;
+} */
+
+.enemy {
+  background:url('sas.png') bottom center no-repeat;
+  background-size:contain;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: 100%;
+  transition:all 0.4s;
+}
+
+.spawn.up .enemy {
+  top:0;
+}
+
+</style>
+</body>
+</html>
