@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Mobile Strike</title>
-  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Rajdhani:600' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <h1>Mobile Strike <span class="score">0</span> <button onClick="startGame()">Start!</button></h1>
+
 
   <div class="game">
+    <header>
+      <h1>Mobile Strike <span class="score">0</span></h1>
+      <button onClick="startGame()" class="button button-start">Start!</button>
+    </header>
     <div class="spawn spawn01">
       <div class="enemy"></div>
     </div>
@@ -99,36 +103,6 @@
     <div class="spawn spawn30">
       <div class="enemy"></div>
     </div>
-    <div class="spawn spawn31">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn32">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn33">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn34">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn35">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn36">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn37">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn38">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn39">
-      <div class="enemy"></div>
-    </div>
-    <div class="spawn spawn40">
-      <div class="enemy"></div>
-    </div>
   </div>
 
 <script>
@@ -204,14 +178,75 @@
 body {
   padding: 0;
   margin:0;
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Rajdhani', sans-serif;
 }
-
+header {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: rgba(65,58,39,0.75);
+  padding: 0 10vw;
+}
 h1 {
   text-align: center;
   font-size: 10rem;
   line-height:1;
-  margin-bottom: 0;
+  margin:0;
+  color: #fff;
+}
+.button {
+  font-size: 60px;
+  font-family: 'Rajdhani', sans-serif;
+  text-align: center;
+  line-height: 85px;
+  color: #fff;
+  margin-left: auto;
+  width: 350px;
+  height: 85px;
+  background: linear-gradient(#1d7751, #0e382c);
+  border: 3px #25793b solid;
+  border-radius: 5px;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+  transition: .1s;
+  transform: scale(1);
+  cursor: pointer;
+  -webkit-user-select: none;
+  box-shadow: 0 0 50px rgba(0,117,9,0.5);
+  overflow: hidden;
+}
+
+
+.button:hover {
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  transform: scale(1.05);
+}
+
+.button:active {
+  background: linear-gradient(#1f8258, #114435);
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  transform: scale(1);
+  box-shadow: 0 0 75px rgba(43,137,68,0.5);
+}
+
+.button:after {
+  content: "";
+  position: relative;
+  top: -120px;
+  left: -90px;
+  display: block;
+  width: 35px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: rotate(35deg);
+  -webkit-filter: blur(20px);
+  transition: none;
+}
+
+.button:hover:after {
+  left: 400px;
+  transition: .3s ease-in-out;
 }
 
 .score {
@@ -222,8 +257,8 @@ h1 {
 }
 
 .game {
-  width:1920px;
-  height:1080px;
+  width:100vw;
+  height:100vh;
   display:flex;
   flex-wrap:wrap;
   margin:0 auto;
@@ -235,6 +270,7 @@ h1 {
   overflow: hidden;
   position: relative;
   flex: 1 0 20%;
+  min-width: 100px;
 }
  /*
 .spawn:after {
