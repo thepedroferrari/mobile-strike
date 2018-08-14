@@ -187,11 +187,11 @@ header {
   align-items: center;
   width: 100%;
   background: rgba(65,58,39,0.75);
-  padding: 0 10vw;
+  padding: 0 6vw;
 }
 h1 {
   text-align: center;
-  font-size: 10rem;
+  font-size: 4rem;
   line-height:1;
   margin:0;
   color: #fff;
@@ -215,7 +215,26 @@ h1 {
   -webkit-user-select: none;
   box-shadow: 0 0 50px rgba(0,117,9,0.5);
   overflow: hidden;
+  zoom: 0.6;
 }
+@media (min-width:1024px) {
+  .button {
+    zoom: 0.85;
+  }
+  h1 {
+    font-size: 6em;
+  }
+}
+
+@media (min-width:1440px) {
+  .button {
+    zoom: 1;
+  }
+  h1 {
+    font-size: 8em;
+  }
+}
+
 
 
 .button:hover {
