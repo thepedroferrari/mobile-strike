@@ -60,57 +60,104 @@
     <div class="spawn spawn16">
       <div class="enemy"></div>
     </div>
+    <footer>
+      <button class="toggleFullScreen contracted"><svg class="expand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 180V56c0-13 11-24 24-24h124c7 0 12 5 12 12v40c0 7-5 12-12 12H64v84c0 7-5 12-12 12H12c-7 0-12-5-12-12zM288 44v40c0 7 5 12 12 12h84v84c0 7 5 12 12 12h40c7 0 12-5 12-12V56c0-13-11-24-24-24H300c-7 0-12 5-12 12zm148 276h-40c-7 0-12 5-12 12v84h-84c-7 0-12 5-12 12v40c0 7 5 12 12 12h124c13 0 24-11 24-24V332c0-7-5-12-12-12zM160 468v-40c0-7-5-12-12-12H64v-84c0-7-5-12-12-12H12c-7 0-12 5-12 12v124c0 13 11 24 24 24h124c7 0 12-5 12-12z"/></svg><svg class="contract-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 192H312c-13 0-24-11-24-24V44c0-7 5-12 12-12h40c7 0 12 5 12 12v84h84c7 0 12 5 12 12v40c0 7-5 12-12 12zm-276-24V44c0-7-5-12-12-12h-40c-7 0-12 5-12 12v84H12c-7 0-12 5-12 12v40c0 7 5 12 12 12h124c13 0 24-11 24-24zm0 300V344c0-13-11-24-24-24H12c-7 0-12 5-12 12v40c0 7 5 12 12 12h84v84c0 7 5 12 12 12h40c7 0 12-5 12-12zm192 0v-84h84c7 0 12-5 12-12v-40c0-7-5-12-12-12H312c-13 0-24 11-24 24v124c0 7 5 12 12 12h40c7 0 12-5 12-12z"/></svg></button>
+    </footer>
   </div>
 
 <script>
-  const spawns = document.querySelectorAll('.spawn');
-  const scoreBoard = document.querySelector('.score');
-  const enemies = document.querySelectorAll('.enemy');
-  let life = 100;
-  let lastSpawn;
-  let timeUp = false;
-  let score = 0;
+const spawns = document.querySelectorAll('.spawn')
+const scoreBoard = document.querySelector('.score')
+const enemies = document.querySelectorAll('.enemy')
+const game = document.querySelector('.game')
+let life = 100
+let lastSpawn;
+let timeUp = false
+let score = 0
 
-  function randomTime(min, max) {
-    return Math.round(Math.random() * (max - min) + min);
+function randomTime(min, max) {
+  return Math.round(Math.random() * (max - min) + min)
+}
+
+function randomSpawn(spawns) {
+  const idx = Math.floor(Math.random() * spawns.length)
+  const spawn = spawns[idx]
+  if (spawn === lastSpawn) {
+    return randomSpawn(spawns)
   }
+  lastSpawn = spawn;
+  return spawn;
+}
 
-  function randomspawn(spawns) {
-    const idx = Math.floor(Math.random() * spawns.length);
-    const spawn = spawns[idx];
-    if (spawn === lastSpawn) {
-      return randomspawn(spawns);
+function peep() {
+  const time = randomTime(200, 1000)
+  const spawn = randomSpawn(spawns)
+  spawn.classList.add('up')
+  setTimeout(() => {
+    spawn.classList.remove('up')
+    if (!timeUp) peep()
+  }, time)
+}
+
+function startGame() {
+  scoreBoard.textContent = 0
+  timeUp = false
+  score = 0
+  peep()
+  setTimeout(() => timeUp = true, 100000)
+}
+
+function bonk(e) {
+  if(!e.isTrusted) return; // cheater!
+  score++;
+  this.parentNode.classList.remove('up');
+  scoreBoard.textContent = score;
+}
+
+enemies.forEach(enemy => enemy.addEventListener('click', bonk));
+
+
+
+// FULLSCREEN
+const btnFullScreen = document.querySelector('.toggleFullScreen')
+const fullscreen = {
+  request: (elem) => {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
     }
-    lastSpawn = spawn;
-    return spawn;
+  },
+  exit: () => {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
   }
+};
 
-  function peep() {
-    const time = randomTime(200, 1000);
-    const spawn = randomspawn(spawns);
-    spawn.classList.add('up');
-    setTimeout(() => {
-      spawn.classList.remove('up');
-      if (!timeUp) peep();
-    }, time);
-  }
-
-  function startGame() {
-    scoreBoard.textContent = 0;
-    timeUp = false;
-    score = 0;
-    peep();
-    setTimeout(() => timeUp = true, 100000)
-  }
-
-  function bonk(e) {
-    if(!e.isTrusted) return; // cheater!
-    score++;
-    this.parentNode.classList.remove('up');
-    scoreBoard.textContent = score;
-  }
-
-  enemies.forEach(enemy => enemy.addEventListener('click', bonk));
+document.querySelector('.toggleFullScreen')
+  .addEventListener('click', (e) => {
+    e.preventDefault();
+    if ( window.innerHeight == screen.height) {
+      fullscreen.exit();
+      btnFullScreen.classList.remove('expanded');
+      btnFullScreen.classList.add('contracted');
+    } else {
+      fullscreen.request(game);
+      btnFullScreen.classList.remove('contracted');
+      btnFullScreen.classList.add('expanded');
+    }
+  })
 
 </script>
 
@@ -272,6 +319,32 @@ h1 {
 
 .spawn.up .enemy {
   top:0;
+}
+
+/* Toggle Full Screen */
+.contracted .expand-icon, .expanded .contract-icon {
+  display: block;
+}
+.contracted .contract-icon, .expanded .expand-icon {
+  display: none;
+}
+.contract-icon, .expand-icon {
+  width: 100%;
+  color: #f00;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column
+}
+.toggleFullScreen {
+  align-self: flex-end;
+  height: calc(32px + 5vw);
+  background: none;
+  border: none;
+  width: calc(32px + 5vw);
 }
 
 </style>
