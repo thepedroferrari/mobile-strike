@@ -5,60 +5,141 @@
   <title>Mobile Strike</title>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
   <link href='https://fonts.googleapis.com/css?family=Rajdhani:600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
   <div class="game">
     <header>
-      <h1>Mobile Strike <span class="score">0</span></h1>
+      <h1>Mobile Strike <span class="score">0</span> <span class="life">100</span></h1>
       <button onClick="startGame()" class="button button-start">Start!</button>
     </header>
     <div class="spawn spawn01">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn02">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn03">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn04">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn05">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn06">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn07">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn08">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn09">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn10">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn11">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn12">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn13">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn14">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn15">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <div class="spawn spawn16">
-      <div class="enemy"></div>
+      <div class="enemy" data-dps="0">
+        <div class="head"></div>
+        <div class="left-arm"></div>
+        <div class="torso"></div>
+        <div class="right-arm"></div>
+      </div>
     </div>
     <footer>
       <button class="toggleFullScreen contracted"><svg class="expand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 180V56c0-13 11-24 24-24h124c7 0 12 5 12 12v40c0 7-5 12-12 12H64v84c0 7-5 12-12 12H12c-7 0-12-5-12-12zM288 44v40c0 7 5 12 12 12h84v84c0 7 5 12 12 12h40c7 0 12-5 12-12V56c0-13-11-24-24-24H300c-7 0-12 5-12 12zm148 276h-40c-7 0-12 5-12 12v84h-84c-7 0-12 5-12 12v40c0 7 5 12 12 12h124c13 0 24-11 24-24V332c0-7-5-12-12-12zM160 468v-40c0-7-5-12-12-12H64v-84c0-7-5-12-12-12H12c-7 0-12 5-12 12v124c0 13 11 24 24 24h124c7 0 12-5 12-12z"/></svg><svg class="contract-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 192H312c-13 0-24-11-24-24V44c0-7 5-12 12-12h40c7 0 12 5 12 12v84h84c7 0 12 5 12 12v40c0 7-5 12-12 12zm-276-24V44c0-7-5-12-12-12h-40c-7 0-12 5-12 12v84H12c-7 0-12 5-12 12v40c0 7 5 12 12 12h124c13 0 24-11 24-24zm0 300V344c0-13-11-24-24-24H12c-7 0-12 5-12 12v40c0 7 5 12 12 12h84v84c0 7 5 12 12 12h40c7 0 12-5 12-12zm192 0v-84h84c7 0 12-5 12-12v-40c0-7-5-12-12-12H312c-13 0-24 11-24 24v124c0 7 5 12 12 12h40c7 0 12-5 12-12z"/></svg></button>
@@ -68,15 +149,32 @@
 <script>
 const spawns = document.querySelectorAll('.spawn')
 const scoreBoard = document.querySelector('.score')
+const lifeHud = document.querySelector('.life')
 const enemies = document.querySelectorAll('.enemy')
 const game = document.querySelector('.game')
 let life = 100
-let lastSpawn;
-let timeUp = false
+let lastSpawn
+let gameOver = false
 let score = 0
+let level = 1
+let timer = 0
+let bullets = 30
 
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min)
+}
+function randomDamage(min, max) {
+  const damage = Math.round(Math.random() * (max - min) * ( level * 0.25 ) ) + 1
+  life = life - damage;
+}
+function updateHud( score, level, life, timer, gameOver ) {
+
+  lifeHud.textContent = life;
+
+  console.log( score, level, life, timer, gameOver )
+}
+function gameEnd() {
+  gameOver = true;
 }
 
 function randomSpawn(spawns) {
@@ -88,33 +186,50 @@ function randomSpawn(spawns) {
   lastSpawn = spawn;
   return spawn;
 }
+const damagePerSecond = (arr) => {
+  const dps = arr.reduce( (accumulator, currentValue) => accumulator + currentValue, 0);
+  console.log(dps)
+  return dps
+}
+const takeDamagePerSecond = setInterval(damagePerSecond, 1000);
 
 function peep() {
-  const time = randomTime(200, 1000)
+  level = Math.round(score / 10 + 1)
+  const time = randomTime(500, 2000)
   const spawn = randomSpawn(spawns)
   spawn.classList.add('up')
+
   setTimeout(() => {
-    spawn.classList.remove('up')
-    if (!timeUp) peep()
+
+    if (!gameOver) {
+      randomDamage(1, 10)
+      updateHud( score, level, life, timer, gameOver )
+      if (life > 0) {
+        peep()
+      } else {
+        gameEnd()
+      }
+    }
   }, time)
 }
 
 function startGame() {
   scoreBoard.textContent = 0
-  timeUp = false
+  lifeHud.textContent = 100
+  gameOver = false
   score = 0
+  level = 1
   peep()
-  setTimeout(() => timeUp = true, 100000)
 }
 
-function bonk(e) {
+function kill(e) {
   if(!e.isTrusted) return; // cheater!
   score++;
   this.parentNode.classList.remove('up');
   scoreBoard.textContent = score;
 }
 
-enemies.forEach(enemy => enemy.addEventListener('click', bonk));
+enemies.forEach(enemy => enemy.addEventListener('click', kill));
 
 
 
@@ -161,192 +276,5 @@ document.querySelector('.toggleFullScreen')
 
 </script>
 
-
-
-
-
-
-
-
-<style>
-  html {
-  box-sizing: border-box;
-  font-size: 10px;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-body {
-  padding: 0;
-  margin:0;
-  font-family: 'Rajdhani', sans-serif;
-}
-header {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background: rgba(65,58,39,0.75);
-  padding: 0 6vw;
-}
-h1 {
-  text-align: center;
-  font-size: 4rem;
-  line-height:1;
-  margin:0;
-  color: #fff;
-}
-.button {
-  font-size: 60px;
-  font-family: 'Rajdhani', sans-serif;
-  text-align: center;
-  line-height: 85px;
-  color: #fff;
-  margin-left: auto;
-  width: 350px;
-  height: 85px;
-  background: linear-gradient(#1d7751, #0e382c);
-  border: 3px #25793b solid;
-  border-radius: 5px;
-  text-shadow: 0 0 20px rgba(255,255,255,0.3);
-  transition: .1s;
-  transform: scale(1);
-  cursor: pointer;
-  -webkit-user-select: none;
-  box-shadow: 0 0 50px rgba(0,117,9,0.5);
-  overflow: hidden;
-  zoom: 0.6;
-}
-@media (min-width:1024px) {
-  .button {
-    zoom: 0.85;
-  }
-  h1 {
-    font-size: 6em;
-  }
-}
-
-@media (min-width:1440px) {
-  .button {
-    zoom: 1;
-  }
-  h1 {
-    font-size: 8em;
-  }
-}
-
-
-
-.button:hover {
-  text-shadow: 0 0 20px rgba(255,255,255,0.5);
-  transform: scale(1.05);
-}
-
-.button:active {
-  background: linear-gradient(#1f8258, #114435);
-  text-shadow: 0 0 20px rgba(255,255,255,0.5);
-  transform: scale(1);
-  box-shadow: 0 0 75px rgba(43,137,68,0.5);
-}
-
-.button:after {
-  content: "";
-  position: relative;
-  top: -120px;
-  left: -90px;
-  display: block;
-  width: 35px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.5);
-  transform: rotate(35deg);
-  -webkit-filter: blur(20px);
-  transition: none;
-}
-
-.button:hover:after {
-  left: 400px;
-  transition: .3s ease-in-out;
-}
-
-.score {
-  background:rgba(255,255,255,0.2);
-  padding:0 3rem;
-  line-height:1;
-  border-radius:1rem;
-}
-
-.game {
-  width:100vw;
-  height:100vh;
-  display:flex;
-  flex-wrap:wrap;
-  margin:0 auto;
-  background: url('bg.jpg');
-  background-size: cover;
-}
-
-.spawn {
-  overflow: hidden;
-  position: relative;
-  flex: 1 0 25%;
-  min-width: 100px;
-}
- /*
-.spawn:after {
-  display: block;
-  background: url(shadow.png) bottom center no-repeat;
-  background-size:contain;
-  content:'';
-  width: 100%;
-  height:70px;
-  position: absolute;
-  z-index: 2;
-  bottom:-30px;
-} */
-
-.enemy {
-  background:url('sas.png') bottom center no-repeat;
-  background-size:contain;
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  height: 100%;
-  transition:all 0.4s;
-}
-
-.spawn.up .enemy {
-  top:0;
-}
-
-/* Toggle Full Screen */
-.contracted .expand-icon, .expanded .contract-icon {
-  display: block;
-}
-.contracted .contract-icon, .expanded .expand-icon {
-  display: none;
-}
-.contract-icon, .expand-icon {
-  width: 100%;
-  color: #f00;
-}
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column
-}
-.toggleFullScreen {
-  align-self: flex-end;
-  height: calc(32px + 5vw);
-  background: none;
-  border: none;
-  width: calc(32px + 5vw);
-}
-
-</style>
 </body>
 </html>
