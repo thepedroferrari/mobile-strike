@@ -13,128 +13,129 @@
       <h1>Mobile Strike <span class="score">0</span> <span class="life">100</span></h1>
       <button onClick="startGame()" class="button button-start">Start!</button>
     </header>
-    <div class="spawn spawn01">
-      <div class="enemy" data-dps="0">
+    <!--(div.spawn>div.enemy#enemy$$>div.head+div.left-arm+div.torso+div.right-arm)*16-->
+    <div class="spawn">
+      <div class="enemy" id="enemy01">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn02">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy02">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn03">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy03">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn04">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy04">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn05">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy05">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn06">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy06">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn07">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy07">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn08">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy08">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn09">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy09">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn10">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy10">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn11">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy11">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn12">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy12">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn13">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy13">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn14">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy14">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn15">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy15">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
         <div class="right-arm"></div>
       </div>
     </div>
-    <div class="spawn spawn16">
-      <div class="enemy" data-dps="0">
+    <div class="spawn">
+      <div class="enemy" id="enemy16">
         <div class="head"></div>
         <div class="left-arm"></div>
         <div class="torso"></div>
@@ -145,13 +146,94 @@
       <button class="toggleFullScreen contracted"><svg class="expand-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 180V56c0-13 11-24 24-24h124c7 0 12 5 12 12v40c0 7-5 12-12 12H64v84c0 7-5 12-12 12H12c-7 0-12-5-12-12zM288 44v40c0 7 5 12 12 12h84v84c0 7 5 12 12 12h40c7 0 12-5 12-12V56c0-13-11-24-24-24H300c-7 0-12 5-12 12zm148 276h-40c-7 0-12 5-12 12v84h-84c-7 0-12 5-12 12v40c0 7 5 12 12 12h124c13 0 24-11 24-24V332c0-7-5-12-12-12zM160 468v-40c0-7-5-12-12-12H64v-84c0-7-5-12-12-12H12c-7 0-12 5-12 12v124c0 13 11 24 24 24h124c7 0 12-5 12-12z"/></svg><svg class="contract-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M436 192H312c-13 0-24-11-24-24V44c0-7 5-12 12-12h40c7 0 12 5 12 12v84h84c7 0 12 5 12 12v40c0 7-5 12-12 12zm-276-24V44c0-7-5-12-12-12h-40c-7 0-12 5-12 12v84H12c-7 0-12 5-12 12v40c0 7 5 12 12 12h124c13 0 24-11 24-24zm0 300V344c0-13-11-24-24-24H12c-7 0-12 5-12 12v40c0 7 5 12 12 12h84v84c0 7 5 12 12 12h40c7 0 12-5 12-12zm192 0v-84h84c7 0 12-5 12-12v-40c0-7-5-12-12-12H312c-13 0-24 11-24 24v124c0 7 5 12 12 12h40c7 0 12-5 12-12z"/></svg></button>
     </footer>
   </div>
-
 <script>
 const spawns = document.querySelectorAll('.spawn')
 const scoreBoard = document.querySelector('.score')
 const lifeHud = document.querySelector('.life')
 const enemies = document.querySelectorAll('.enemy')
 const game = document.querySelector('.game')
+const damageArr = {
+  enemy01: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy02: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy03: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy04: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy05: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy06: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy07: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy08: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy09: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy10: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy11: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy12: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy13: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy14: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy15: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+  enemy16: {
+    life: 0,
+    damage: 0,
+    level: 1
+  },
+}
 let life = 100
 let lastSpawn
 let gameOver = false
@@ -163,19 +245,20 @@ let bullets = 30
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min)
 }
-function randomDamage(min, max) {
-  const damage = Math.round(Math.random() * (max - min) * ( level * 0.25 ) ) + 1
-  life = life - damage;
-}
+
+randomDamage = (min, max) => Math.round(Math.random() * (max - min) * ( level * 0.05 ) ) + 1
+
 function updateHud( score, level, life, timer, gameOver ) {
 
   lifeHud.textContent = life;
 
-  console.log( score, level, life, timer, gameOver )
+  //console.log( score, level, life, timer, gameOver )
 }
 function gameEnd() {
-  gameOver = true;
+  gameOver = true
+  lifeHud.textContent = '💀'
 }
+const sumValues = obj => Object.values(obj).reduce((a, b) => {a + b},0);
 
 function randomSpawn(spawns) {
   const idx = Math.floor(Math.random() * spawns.length)
@@ -186,23 +269,36 @@ function randomSpawn(spawns) {
   lastSpawn = spawn;
   return spawn;
 }
-const damagePerSecond = (arr) => {
-  const dps = arr.reduce( (accumulator, currentValue) => accumulator + currentValue, 0);
-  console.log(dps)
+
+const damagePerSecond = () => {
+  let dps = 0;
+  for (var key in damageArr) {
+    dps = dps + Number(damageArr[key]['damage'])
+  }
   return dps
 }
-const takeDamagePerSecond = setInterval(damagePerSecond, 1000);
+let takeDPS = setInterval(() => {
+  if (damagePerSecond()) {
+    life = life - damagePerSecond()
+  }
+}, 1000)
 
 function peep() {
-  level = Math.round(score / 10 + 1)
-  const time = randomTime(500, 2000)
+  const time = randomTime(650, 1400)
   const spawn = randomSpawn(spawns)
+  const currentEnemy = spawn.querySelector('.enemy')
   spawn.classList.add('up')
+  damageArr[currentEnemy.id]['damage'] = randomDamage(1, 10)
+
+  takeDPS = setInterval(() => {
+    if (damagePerSecond()) {
+      life = life - damagePerSecond()
+    }
+  }, 1000)
+
 
   setTimeout(() => {
-
     if (!gameOver) {
-      randomDamage(1, 10)
       updateHud( score, level, life, timer, gameOver )
       if (life > 0) {
         peep()
@@ -224,7 +320,14 @@ function startGame() {
 
 function kill(e) {
   if(!e.isTrusted) return; // cheater!
-  score++;
+  clearInterval(takeDPS)
+  damageArr[this.id]['damage'] = 0
+
+
+  score++
+
+
+  level = Math.round(score / 10 + 1)
   this.parentNode.classList.remove('up');
   scoreBoard.textContent = score;
 }
