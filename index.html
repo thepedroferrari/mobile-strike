@@ -152,7 +152,7 @@ const scoreBoard = document.querySelector('.score')
 const lifeHud = document.querySelector('.life')
 const enemies = document.querySelectorAll('.enemy')
 const game = document.querySelector('.game')
-const damageArr = {
+const enemiesObj = {
   enemy01: {
     life: 0,
     damage: 0,
@@ -258,7 +258,7 @@ function gameEnd() {
   gameOver = true
   lifeHud.textContent = '💀'
 }
-const sumValues = obj => Object.values(obj).reduce((a, b) => {a + b},0);
+const sumValues = obj => Object.values(obj).reduce((a, b) => {a + b},0)
 
 function randomSpawn(spawns) {
   const idx = Math.floor(Math.random() * spawns.length)
@@ -272,8 +272,8 @@ function randomSpawn(spawns) {
 
 const damagePerSecond = () => {
   let dps = 0;
-  for (var key in damageArr) {
-    dps = dps + Number(damageArr[key]['damage'])
+  for (var key in enemiesObj) {
+    dps = dps + Number(enemiesObj[key]['damage'])
   }
   return dps
 }
@@ -291,24 +291,44 @@ const damagePerSecond = () => {
   }
 } */
 
-setInterval(() => {
-  if (damagePerSecond()) {
+const takeDPS = () => {
+  const enemiesAlive = document.querySelectorAll('.alive')
+  let dps = 0
+  enemiesAlive.forEach(enemy => {
+    const currentEnemy = enemy.querySelector('.enemy').id
+
     setTimeout(() => {
-      if (damagePerSecond() !== 0 ) {
-        life = life - damagePerSecond()
+      for (let currentEnemy in enemiesObj) {
+        dps = dps + Number(enemiesObj[currentEnemy]['damage'])
       }
-    }, 1000);
-  }
+      life = life - dps
+    }, 1000)
+
+
+  })
+
+
+   /*  if (damagePerSecond()) {
+      setTimeout(() => {
+        if (damagePerSecond() !== 0 ) {
+          life = life - damagePerSecond()
+        }
+      }, 1000);
+    } */
+}
+
+setInterval(() => {
+  takeDPS()
 }, 1000)
+
 
 function peep() {
   const time = randomTime(1000, 2000)
   const spawn = randomSpawn(spawns)
   const currentEnemy = spawn.querySelector('.enemy')
-  spawn.classList.add('up')
-  damageArr[currentEnemy.id]['damage'] = randomDamage(1, 10)
+  spawn.classList.add('alive')
 
-
+  enemiesObj[currentEnemy.id]['damage'] = randomDamage(1, 10)
 
   setTimeout(() => {
     if (!gameOver) {
@@ -334,14 +354,14 @@ function startGame() {
 function kill(e) {
   if(!e.isTrusted) return; // cheater!
 
-  damageArr[this.id]['damage'] = 0
+  enemiesObj[this.id]['damage'] = 0
 
 
   score++
 
 
   level = Math.round(score / 10 + 1)
-  this.parentNode.classList.remove('up');
+  this.parentNode.classList.remove('alive');
   scoreBoard.textContent = score;
 }
 

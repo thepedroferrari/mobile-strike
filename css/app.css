@@ -177,7 +177,7 @@ h1 {
   width: 96px;
   height: 196px;
 }
-.spawn.up .enemy {
+.spawn.alive .enemy {
   top:0;
 }
 
