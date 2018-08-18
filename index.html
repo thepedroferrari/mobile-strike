@@ -277,24 +277,37 @@ const damagePerSecond = () => {
   }
   return dps
 }
-let takeDPS = setInterval(() => {
+/* const takeDPS = () => {
+  if (damagePerSecond() !== 0 ) {
+    console.log('dmg:', damagePerSecond())
+    setTimeout(() => {
+      if (damagePerSecond() !== 0 ) {
+        life = life - damagePerSecond()
+      }
+      takeDPS()
+    }, 1000);
+  } else {
+    takeDPS();
+  }
+} */
+
+setInterval(() => {
   if (damagePerSecond()) {
-    life = life - damagePerSecond()
+    setTimeout(() => {
+      if (damagePerSecond() !== 0 ) {
+        life = life - damagePerSecond()
+      }
+    }, 1000);
   }
 }, 1000)
 
 function peep() {
-  const time = randomTime(650, 1400)
+  const time = randomTime(1000, 2000)
   const spawn = randomSpawn(spawns)
   const currentEnemy = spawn.querySelector('.enemy')
   spawn.classList.add('up')
   damageArr[currentEnemy.id]['damage'] = randomDamage(1, 10)
 
-  takeDPS = setInterval(() => {
-    if (damagePerSecond()) {
-      life = life - damagePerSecond()
-    }
-  }, 1000)
 
 
   setTimeout(() => {
@@ -320,7 +333,7 @@ function startGame() {
 
 function kill(e) {
   if(!e.isTrusted) return; // cheater!
-  clearInterval(takeDPS)
+
   damageArr[this.id]['damage'] = 0
 
 

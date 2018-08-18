@@ -154,7 +154,7 @@ h1 {
   min-width: 256px;
 }
 .enemy > * {
-  opacity: .15;
+  opacity: .1;
 }
 .head {
   background: red;
