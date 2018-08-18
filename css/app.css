@@ -122,9 +122,8 @@ h1 {
   overflow: hidden;
   position: relative;
   flex: 1 0 25%;
-  min-width: 128px;
-  min-height: 128px;
-
+  width: 128px;
+  height: 128px;
 }
  /*
 .spawn:after {
